@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/estilo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c9f5871d83.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+        <nav class="nav">
+            <ul class="imagenes">
+                <li>
+                <a href="#"></a>
+                </li>
+                <li>
+                    <button id="panel" class="boton-menu boton-categoria active"><a class="a" href="productos">Productos</a></button>
+                </li>
+                <li>
+                    <button id="inventario" class="boton-menu boton-categoria"><a  class="a"
+                    href="prueba">Proveedores</a></button>
+                </li>
+                <li>
+                    <button id="pedidos" class="boton-menu boton-categoria"><a  class="a" href="categoria.jtml">Categoría</a></button>
+                </li>
+                <li>
+                    <button id="otros" class="boton-menu boton-categoria"><a class="a" href="transacciones.html">Transaccioones</a></button>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <nav class="nav">
+            <ul class="menu">
+                <li>
+                <a href="#"></a>
+                </li>
+<!-- Agregar -->
+                <li>
+                <button type="button" class="boton-menu boton-categoria" data-bs-toggle="modal" data-bs-target="#agregarModal">Agregar</button>
+                    <!-- The Modal -->
+                <form action="/crud_productos/agregar" method="POST">
+                <div class="modal" id="agregarModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Agregar producto</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+        
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                                <label>Nombre</label>
+                                <input type="text" name="producto">
+                                <label>Proveedor</label>
+                                <input type="text" name="proveedor">
+                                <label>Stock</label>
+                                <input type="number" name="stock">
+                                <label>Precio</label>
+                                <input type="number" name="precio">
+                        </div>
+        
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <input type="submit" value="OK" />
+                            <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                        </div>
+                </li>
+                </form>
+<!-- Modificar -->
+        <li>
+            <button id="modificarBtn" class="boton-menu boton-categoria" data-bs-toggle="modal" data-bs-target="#modificarModal">Modificar</button>
+                    <!-- The Modal -->
+            <form action="/modificar" method="">
+                <div class="modal" id="modificarModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Modificar producto</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+        
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th>Proveedor</th>
+                                        <th>Id</th>
+                                        <th>Precio</th>
+                                        <th>Stock</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <% for (var i = 0; i < Productos.length; i++) { %>
+                                    <tr>
+                                            <td><%= Productos[i].id %>"</td>
+                                            <td><%= Productos[i].producto %></td>
+                                            <td><%= Productos[i].proveedor %>></td>
+                                            <td><%= Productos[i].precio %></td>
+                                            <td><%= Productos[i].stock %></td>
+                                            <td>          
+                                                <button>Modificar</button>
+                                            </td>
+                                            <% } %>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                        </div>        
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <input type="submit" data-bs-dismiss="modal"></button>
+                            <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+                </li>
+
+        <!-- Visualizar-->
+        <li>
+                <button id="visualizarBtn" class="boton-menu boton-categoria" data-bs-toggle="modal" data-bs-target="#visualizarModal">Visualizar</button>
+                    <!-- The Modal -->
+                <div class="modal" id="visualizarModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Visualizar producto</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+        
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            
+                        </div>
+        
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <input type="submit" data-bs-dismiss="modal"></button>
+                            <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                    </div>
+                </li>
+<!-- Eliminar-->
+        <li>
+                <button id="eliminarBtn" class="boton-menu boton-categoria" data-bs-toggle="modal" data-bs-target="#eliminarModal">Eliminar</button>
+                    <!-- The Modal -->
+                <div class="modal" id="eliminarModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Eliminar producto</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+        
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                        </div>
+        
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <input type="submit" data-bs-dismiss="modal"></button>
+                            <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+                </li>
+            </nav>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<form action="/modificar/:id" method="POST">
+    <div class="modal" id="agregarModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modificar producto</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <!-- Campo oculto para el ID del producto -->
+                    <input type="hidden" name="id" value="<%= Productos[i].id %>">
+                    
+                    <label>Stock</label>
+                    <input type="number" name="stock">
+                    
+                    <label>Precio</label>
+                    <input type="number" name="precio">
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+

@@ -1,0 +1,20 @@
+<%- include layouts/cabecera.ejs %>
+
+<div class="container">
+  <div class="row">
+    <% for (var i=0;i < Productos.length; i++) { %>
+      <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><h3> <%= Productos[i].producto %> </h3>
+
+            <p class="card-text"> 
+              <h3> <%= Productos[i].stock %> </h3>
+              <h3> Precio: $ <%= Productos[i].precio %> </h3>
+              <h3> <%= Productos[i].proveedor %> </h3>
+              <h3> <%= Productos[i].id %> </h3>
+        </div>
+      </div>
+    </div> 
+    <% } %>
+  </div>
